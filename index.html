@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>! Libazzin</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: url('https://i.imgur.com/BB2EKEG.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(80,0,120,0.5), rgba(0,0,0,0.95));
+      z-index: 0;
+    }
+
+    .rain {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .drop {
+      position: absolute;
+      bottom: 100%;
+      width: 2px;
+      height: 18px;
+      background: linear-gradient(transparent, #b266ff);
+      animation: rain linear infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes rain {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      background: rgba(25, 0, 40, 0.55);
+      backdrop-filter: blur(25px);
+      border-radius: 25px;
+      padding: 40px;
+      width: 380px;
+      text-align: center;
+      border: 1px solid rgba(178,102,255,0.3);
+      animation: glow 3s infinite;
+      transition: 0.3s;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 20px rgba(178,102,255,0.3); }
+      50% { box-shadow: 0 0 40px rgba(178,102,255,0.6); }
+      100% { box-shadow: 0 0 20px rgba(178,102,255,0.3); }
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #b266ff;
+      object-fit: cover;
+      box-shadow: 0 0 20px #b266ff;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: #e6ccff;
+      animation: neon 2s infinite alternate;
+    }
+
+    @keyframes neon {
+      from { text-shadow: 0 0 10px #b266ff; }
+      to { text-shadow: 0 0 25px #b266ff; }
+    }
+
+    p {
+      font-size: 14px;
+      opacity: 0.85;
+      margin-bottom: 25px;
+    }
+
+    .links a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      color: white;
+      background: rgba(60, 0, 90, 0.6);
+      padding: 14px;
+      margin: 12px 0;
+      border-radius: 14px;
+      border: 1px solid rgba(178,102,255,0.3);
+      transition: 0.3s;
+      overflow: hidden;
+    }
+
+    .links img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      background: white;
+      padding: 4px;
+      border-radius: 6px;
+    }
+
+    .links a:hover {
+      background: #b266ff;
+      color: black;
+      transform: scale(1.04);
+      box-shadow: 0 0 20px #b266ff;
+    }
+
+    .links a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: 0.5s;
+    }
+
+    .links a:hover::before {
+      left: 100%;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      opacity: 0.5;
+    }
+
+    /* CREDITOS */
+    .credit {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      z-index: 3;
+    }
+
+    .credit a {
+      color: #b266ff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .credit a:hover {
+      text-shadow: 0 0 10px #b266ff;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        width: 90%;
+        padding: 30px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="rain" id="rain"></div>
+
+  <div class="container">
+    <img src="https://i.ibb.co/PswRtKq7/d016870977d29921edcfc5fb4c31233e.webp" class="avatar">
+
+    <h1>! Libazzin</h1>
+
+    <p>Presença digital única, estética moderna e projetos que se destacam.</p>
+
+    <div class="links">
+      <a href="https://www.youtube.com/channel/UCWYiw3PtNPxYLGDqSPoICFQ" target="_blank" onclick="playSound()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png">
+        YouTube
+      </a>
+
+      <a href="https://tiktok.com/@libazzin_lcw" target="_blank" onclick="playSound()">
+        <img src="https://iconape.com/wp-content/files/fd/121669/svg/tiktok-logo-tik-tok-logo-icon-png-svg.png">
+        TikTok
+      </a>
+
+      <a href="https://ultimatebloxx.com/?ref=LBZ" target="_blank" onclick="playSound()">
+        <img src="https://cdn.centralcart.io/stores/9973/theme/3aa82ba8-aa67-4af2-9889-046fa1f699bb.png">
+        Ultimate Bloxx
+      </a>
+
+      <a href="https://www.roblox.com/share/g/574282452" target="_blank" onclick="playSound()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Roblox_Studio_logo_2021_present.svg/250px-Roblox_Studio_logo_2021_present.svg.png">
+        Grupo Roblox
+      </a>
+
+      <a href="https://livepix.gg/libazzin" target="_blank" onclick="playSound()">
+        <img src="https://play-lh.googleusercontent.com/HAN8nvHpwAAb8kPdPzEqm_xNpDbvbOBMcnGM3rL2WtCKsGspAptxj5K9pIHungHEYn5s">
+        LivePix
+      </a>
+    </div>
+
+    <div class="footer">
+      © 2026 - ! Libazzin
+    </div>
+  </div>
+
+  <!-- CREDITOS -->
+  <div class="credit">
+    desenvolvido por 
+    <a href="https://discord.com/users/1476227757280333835" target="_blank">
+      Dackzada
+    </a>
+  </div>
+
+  <!-- SOM -->
+  <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9b4c9b.mp3?filename=click-soft-1-112998.mp3"></audio>
+
+  <script>
+    function playSound() {
+      const sound = document.getElementById("clickSound");
+      sound.currentTime = 0;
+      sound.play();
+    }
+
+    const rain = document.getElementById("rain");
+
+    for (let i = 0; i < 100; i++) {
+      let drop = document.createElement("div");
+      drop.classList.add("drop");
+
+      drop.style.left = Math.random() * 100 + "vw";
+      drop.style.animationDuration = (0.7 + Math.random()) + "s";
+      drop.style.opacity = Math.random();
+
+      rain.appendChild(drop);
+    }
+  </script>
+
+</body>
+</html>
