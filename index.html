@@ -1,272 +1,264 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>! Libazzin</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>! Libazzin</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
-    body {
-      height: 100vh;
-      background: url('https://i.imgur.com/BB2EKEG.png') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      overflow: hidden;
-    }
+body {
+  height: 100vh;
+  background: url('https://i.imgur.com/BB2EKEG.png') no-repeat center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
 
-    body::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(80,0,120,0.5), rgba(0,0,0,0.95));
-      z-index: 0;
-    }
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(80,0,120,0.5), rgba(0,0,0,0.95));
+}
 
-    .rain {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-    }
+/* CONTAINER */
+.container {
+  position: relative;
+  z-index: 2;
+  background: rgba(25, 0, 40, 0.6);
+  backdrop-filter: blur(25px);
+  border-radius: 25px;
+  padding: 40px;
+  width: 380px;
+  text-align: center;
+  border: 1px solid rgba(178,102,255,0.3);
+  box-shadow: 0 0 30px rgba(178,102,255,0.4);
+}
 
-    .drop {
-      position: absolute;
-      bottom: 100%;
-      width: 2px;
-      height: 18px;
-      background: linear-gradient(transparent, #b266ff);
-      animation: rain linear infinite;
-      opacity: 0.5;
-    }
+/* AVATAR */
+.avatar {
+  display: block;
+  margin: 0 auto 15px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #b266ff;
+  object-fit: cover;
+  box-shadow: 0 0 20px #b266ff;
+}
 
-    @keyframes rain {
-      to {
-        transform: translateY(110vh);
-      }
-    }
+/* NOME + BADGE CENTRAL */
+.name-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
 
-    .container {
-      position: relative;
-      z-index: 2;
-      background: rgba(25, 0, 40, 0.55);
-      backdrop-filter: blur(25px);
-      border-radius: 25px;
-      padding: 40px;
-      width: 380px;
-      text-align: center;
-      border: 1px solid rgba(178,102,255,0.3);
-      animation: glow 3s infinite;
-      transition: 0.3s;
-    }
+h1 {
+  font-size: 26px;
+  color: #e6ccff;
+}
 
-    .container:hover {
-      transform: translateY(-5px);
-    }
+/* BADGE JESUS */
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(60, 0, 90, 0.9);
+  border: 1px solid rgba(178,102,255,0.5);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  box-shadow: 0 0 15px rgba(178,102,255,0.6);
+  animation: float 3s ease-in-out infinite;
+}
 
-    @keyframes glow {
-      0% { box-shadow: 0 0 20px rgba(178,102,255,0.3); }
-      50% { box-shadow: 0 0 40px rgba(178,102,255,0.6); }
-      100% { box-shadow: 0 0 20px rgba(178,102,255,0.3); }
-    }
+.badge img {
+  width: 16px;
+  height: 16px;
+}
 
-    .avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-      border: 3px solid #b266ff;
-      object-fit: cover;
-      box-shadow: 0 0 20px #b266ff;
-    }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
 
-    h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
-      color: #e6ccff;
-      animation: neon 2s infinite alternate;
-    }
+/* TEXTO */
+p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin: 20px 0 25px;
+}
 
-    @keyframes neon {
-      from { text-shadow: 0 0 10px #b266ff; }
-      to { text-shadow: 0 0 25px #b266ff; }
-    }
+/* LINKS */
+.links a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: white;
+  background: rgba(60, 0, 90, 0.6);
+  padding: 14px;
+  margin: 12px 0;
+  border-radius: 14px;
+  border: 1px solid rgba(178,102,255,0.3);
+  transition: 0.3s;
+}
 
-    p {
-      font-size: 14px;
-      opacity: 0.85;
-      margin-bottom: 25px;
-    }
+.links img {
+  width: 26px;
+  height: 26px;
+  background: white;
+  padding: 4px;
+  border-radius: 6px;
+}
 
-    .links a {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      text-decoration: none;
-      color: white;
-      background: rgba(60, 0, 90, 0.6);
-      padding: 14px;
-      margin: 12px 0;
-      border-radius: 14px;
-      border: 1px solid rgba(178,102,255,0.3);
-      transition: 0.3s;
-      overflow: hidden;
-    }
+.links a:hover {
+  background: #b266ff;
+  color: black;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #b266ff;
+}
 
-    .links img {
-      width: 26px;
-      height: 26px;
-      object-fit: contain;
-      background: white;
-      padding: 4px;
-      border-radius: 6px;
-    }
+/* TOOLTIP MELHORADO */
+.tooltip::after {
+  content: "Use o cupom LBZ";
+  position: absolute;
+  right: 15px;
+  top: -30px;
+  background: rgba(20,0,40,0.95);
+  border: 1px solid #b266ff;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  opacity: 0;
+  transition: 0.3s;
+  white-space: nowrap;
+  box-shadow: 0 0 10px #b266ff;
+}
 
-    .links a:hover {
-      background: #b266ff;
-      color: black;
-      transform: scale(1.04);
-      box-shadow: 0 0 20px #b266ff;
-    }
+.tooltip:hover::after {
+  opacity: 1;
+  transform: translateY(-5px);
+}
 
-    .links a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: 0.5s;
-    }
+/* FOOTER */
+.footer {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: 0.5;
+}
 
-    .links a:hover::before {
-      left: 100%;
-    }
+/* CHUVA */
+.rain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
 
-    .footer {
-      margin-top: 20px;
-      font-size: 12px;
-      opacity: 0.5;
-    }
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 2px;
+  height: 18px;
+  background: linear-gradient(transparent, #b266ff);
+  animation: rain linear infinite;
+  opacity: 0.5;
+}
 
-    /* CREDITOS */
-    .credit {
-      position: fixed;
-      bottom: 10px;
-      right: 15px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.6);
-      z-index: 3;
-    }
-
-    .credit a {
-      color: #b266ff;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .credit a:hover {
-      text-shadow: 0 0 10px #b266ff;
-    }
-
-    @media (max-width: 500px) {
-      .container {
-        width: 90%;
-        padding: 30px;
-      }
-    }
-
-  </style>
+@keyframes rain {
+  to {
+    transform: translateY(110vh);
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="rain" id="rain"></div>
+<div class="rain" id="rain"></div>
 
-  <div class="container">
-    <img src="https://i.ibb.co/PswRtKq7/d016870977d29921edcfc5fb4c31233e.webp" class="avatar">
+<div class="container">
 
-    <h1>! Libazzin</h1>
+<img src="https://i.ibb.co/PswRtKq7/d016870977d29921edcfc5fb4c31233e.webp" class="avatar">
 
-    <p>Presença digital única, estética moderna e projetos que se destacam.</p>
+<div class="name-row">
+  <h1>! Libazzin</h1>
 
-    <div class="links">
-      <a href="https://www.youtube.com/channel/UCWYiw3PtNPxYLGDqSPoICFQ" target="_blank" onclick="playSound()">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png">
-        YouTube
-      </a>
-
-      <a href="https://tiktok.com/@libazzin_lcw" target="_blank" onclick="playSound()">
-        <img src="https://iconape.com/wp-content/files/fd/121669/svg/tiktok-logo-tik-tok-logo-icon-png-svg.png">
-        TikTok
-      </a>
-
-      <a href="https://ultimatebloxx.com/?ref=LBZ" target="_blank" onclick="playSound()">
-        <img src="https://cdn.centralcart.io/stores/9973/theme/3aa82ba8-aa67-4af2-9889-046fa1f699bb.png">
-        Ultimate Bloxx
-      </a>
-
-      <a href="https://www.roblox.com/share/g/574282452" target="_blank" onclick="playSound()">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Roblox_Studio_logo_2021_present.svg/250px-Roblox_Studio_logo_2021_present.svg.png">
-        Grupo Roblox
-      </a>
-
-      <a href="https://livepix.gg/libazzin" target="_blank" onclick="playSound()">
-        <img src="https://play-lh.googleusercontent.com/HAN8nvHpwAAb8kPdPzEqm_xNpDbvbOBMcnGM3rL2WtCKsGspAptxj5K9pIHungHEYn5s">
-        LivePix
-      </a>
-    </div>
-
-    <div class="footer">
-      © 2026 - ! Libazzin
-    </div>
+  <div class="badge">
+    <img src="https://cdn.discordapp.com/emojis/1482828695369679072.webp?size=96&animated=true">
+    JESUS
   </div>
+</div>
 
-  <!-- CREDITOS -->
-  <div class="credit">
-    desenvolvido por 
-    <a href="https://discord.com/users/1476227757280333835" target="_blank">
-      Dackzada
-    </a>
-  </div>
+<p>Presença digital única, estética moderna e projetos que se destacam.</p>
 
-  <!-- SOM -->
-  <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9b4c9b.mp3?filename=click-soft-1-112998.mp3"></audio>
+<div class="links">
 
-  <script>
-    function playSound() {
-      const sound = document.getElementById("clickSound");
-      sound.currentTime = 0;
-      sound.play();
-    }
+<a href="#" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png">
+YouTube
+</a>
 
-    const rain = document.getElementById("rain");
+<a href="#" target="_blank">
+<img src="https://iconape.com/wp-content/files/fd/121669/svg/tiktok-logo-tik-tok-logo-icon-png-svg.png">
+TikTok
+</a>
 
-    for (let i = 0; i < 100; i++) {
-      let drop = document.createElement("div");
-      drop.classList.add("drop");
+<a href="#" target="_blank" class="tooltip">
+<img src="https://cdn.centralcart.io/stores/9973/theme/3aa82ba8-aa67-4af2-9889-046fa1f699bb.png">
+Ultimate Bloxx
+</a>
 
-      drop.style.left = Math.random() * 100 + "vw";
-      drop.style.animationDuration = (0.7 + Math.random()) + "s";
-      drop.style.opacity = Math.random();
+<a href="#" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Roblox_Studio_logo_2021_present.svg/250px-Roblox_Studio_logo_2021_present.svg.png">
+Grupo Roblox
+</a>
 
-      rain.appendChild(drop);
-    }
-  </script>
+<a href="#" target="_blank">
+<img src="https://play-lh.googleusercontent.com/HAN8nvHpwAAb8kPdPzEqm_xNpDbvbOBMcnGM3rL2WtCKsGspAptxj5K9pIHungHEYn5s">
+LivePix
+</a>
+
+</div>
+
+<div class="footer">
+© 2026 - ! Libazzin
+</div>
+
+</div>
+
+<script>
+const rain = document.getElementById("rain");
+
+for (let i = 0; i < 100; i++) {
+  let drop = document.createElement("div");
+  drop.classList.add("drop");
+
+  drop.style.left = Math.random() * 100 + "vw";
+  drop.style.animationDuration = (0.7 + Math.random()) + "s";
+  drop.style.opacity = Math.random();
+
+  rain.appendChild(drop);
+}
+</script>
 
 </body>
 </html>
